@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "version": "0.0.0",
+  "name": "@yurkimus/response-status",
+  "author": {
+    "name": "yurkimus",
+    "email": "yurkimus@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yurkimus/response-status.git"
+  },
+  "exports": "./source/index.js",
+  "dependencies": {
+    "@yurkimus/http-statuses": "@yurkimus/http-statuses"
+  }
+}
