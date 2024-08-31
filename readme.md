@@ -1,6 +1,6 @@
 # ResponseStatus Prototype
 
-JavaScript's Enumeration implementation
+JavaScript's ResponseStatus implementation
 
 This package utilises [HttpStatuses](https://github.com/yurkimus/http-statuses)
 
