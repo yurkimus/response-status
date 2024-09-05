@@ -1,22 +1,22 @@
 import { HttpStatuses } from '@yurkimus/http-statuses'
 
 /**
- * @param {keyof HttpStatuses} key
+ * @param {keyof HttpStatuses} status
  */
-export function ResponseStatus(key) {
-  if (!(key in HttpStatuses)) {
+export function ResponseStatus(status) {
+  if (!(status in HttpStatuses)) {
     throw new TypeError(
-      `Expected key "${key}" to be presented in "HttpStatuses" listing`,
+      `Expected key "${status}" to be presented in "HttpStatuses" listing`,
     )
   }
 
-  this.status = HttpStatuses[key][0]
-  this.statusText = HttpStatuses[key][1]
+  this.status = HttpStatuses[status][0]
+  this.statusText = HttpStatuses[status][1]
 }
 
 /**
- * @param {keyof HttpStatuses} key
+ * @param {keyof HttpStatuses} status
  */
-ResponseStatus.of = function (key) {
-  return new ResponseStatus(key)
+ResponseStatus.of = function (status) {
+  return new ResponseStatus(status)
 }
