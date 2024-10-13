@@ -1,26 +1,49 @@
 import { HttpStatuses } from '@yurkimus/http-statuses'
 
 /**
- * @param {keyof typeof HttpStatuses | typeof HttpStatuses[keyof typeof HttpStatuses]} value
+ * @typedef {keyof typeof HttpStatuses | typeof HttpStatuses[keyof typeof HttpStatuses]} ResponseStatusInit
  */
-export function ResponseStatus(value) {
-  let found = Object
-    .entries(HttpStatuses)
-    .find(([statusText, status]) => statusText === value || status === value)
 
-  if (!found) {
-    throw new TypeError(
-      `Expected key "${status}" to be presented in "HttpStatuses" listing`,
+/**
+ * @param {ResponseStatusInit} init
+ */
+export function ResponseStatus(init) {
+  if (!ResponseStatus.has(init))
+    throw new ReferenceError(
+      `Expected key "${init}" to be presented in "HttpStatuses"`,
     )
-  }
 
-  this.statusText = found[0]
-  this.status = found[1]
+  let [statusText, status] = ResponseStatus.get(init)
+
+  this.statusText = statusText
+  this.status = status
 }
 
 /**
- * @param {keyof typeof HttpStatuses | typeof HttpStatuses[keyof typeof HttpStatuses]} value
+ * @param {ResponseStatusInit} init
  */
-ResponseStatus.of = function(value) {
-  return new ResponseStatus(value)
+ResponseStatus.of = init => new ResponseStatus(init)
+
+/**
+ * @param {ResponseStatusInit} init
+ */
+ResponseStatus.get = init => {
+  let found = Object
+    .entries(HttpStatuses)
+    .find(([statusText, status]) =>
+      statusText === init
+      || status === init
+    )
+
+  if (!found)
+    return undefined
+
+  return found
 }
+
+/**
+ * @param {ResponseStatusInit} init
+ */
+ResponseStatus.has = init => Boolean(ResponseStatus.get(init))
+
+ResponseStatus.prototype[Symbol.toStringTag] = 'ResponseStatus'

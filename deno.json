@@ -1,6 +1,6 @@
 {
   "name": "@yurkimus/response-status",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "exports": "./source/index.js",
   "imports": {
     "@yurkimus/http-statuses": "https://raw.githubusercontent.com/yurkimus/http-statuses/main/source/index.js"
