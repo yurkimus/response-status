@@ -2,10 +2,7 @@ import { is, type } from '@yurkimus/types'
 
 import { ResponseStatusEnum } from './enumeration.js'
 
-if (globalThis.ResponseStatus !== ResponseStatus)
-  globalThis.ResponseStatus = ResponseStatus
-
-function ResponseStatus(value) {
+export function ResponseStatus(value) {
   if (!(this instanceof ResponseStatus))
     return new ResponseStatus(value)
 

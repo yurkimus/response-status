@@ -25,4 +25,4 @@ interface ResponseStatusConstructor {
   readonly [Symbol.toStringTag]: 'ResponseStatus'
 }
 
-declare var ResponseStatus: ResponseStatusConstructor
+export var ResponseStatus: ResponseStatusConstructor
