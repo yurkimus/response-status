@@ -11,10 +11,6 @@
     ".": {
       "types": "./source/index.d.ts",
       "import": "./source/index.js"
-    },
-    "./enumeration": {
-      "types": "./source/enumeration.d.ts",
-      "import": "./source/enumeration.js"
     }
   }
 }
