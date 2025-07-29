@@ -113,7 +113,8 @@ export function ResponseStatus(value) {
           `Parameter 'value': '${value}' must be a member of 'StatusTexts'.`,
         )
 
-      var index = StatusTexts.findIndex(value)
+      var index = StatusTexts
+        .findIndex(statusText => statusText === value)
 
       this.status = StatusNumbers[index]
       this.statusText = value
@@ -126,7 +127,8 @@ export function ResponseStatus(value) {
           `Parameter 'value': '${value}' must be a member of 'StatusNumbers'.`,
         )
 
-      var index = StatusNumbers.findIndex(value)
+      var index = StatusNumbers
+        .findIndex(statusNumber => statusNumber === value)
 
       this.status = value
       this.statusText = StatusTexts[index]
